@@ -14,6 +14,7 @@
 		633F284C2A0665E100124B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633F284B2A0665E100124B24 /* Assets.xcassets */; };
 		633F284F2A0665E100124B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633F284D2A0665E100124B24 /* LaunchScreen.storyboard */; };
 		C14BEC604615C8B94F2BC9F3 /* Pods_HabitsTrackeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */; };
+		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		633F284E2A0665E100124B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		633F28502A0665E100124B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EDFA47962A68F82B8A9C5352 /* Pods-HabitsTrackeriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTrackeriOS.release.xcconfig"; path = "Target Support Files/Pods-HabitsTrackeriOS/Pods-HabitsTrackeriOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				633F28422A0665DE00124B24 /* AppDelegate.swift */,
 				633F28442A0665DE00124B24 /* SceneDelegate.swift */,
 				633F28462A0665DE00124B24 /* ViewController.swift */,
+				EAEAE01C2A06B10A00DA2CEB /* View */,
 				633F28482A0665DE00124B24 /* Main.storyboard */,
 				633F284B2A0665E100124B24 /* Assets.xcassets */,
 				633F284D2A0665E100124B24 /* LaunchScreen.storyboard */,
@@ -80,7 +83,6 @@
 				5126B9613072E57CD80A079D /* Pods-HabitsTrackeriOS.debug.xcconfig */,
 				EDFA47962A68F82B8A9C5352 /* Pods-HabitsTrackeriOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -90,6 +92,14 @@
 				A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EAEAE01C2A06B10A00DA2CEB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +220,7 @@
 				633F28472A0665DE00124B24 /* ViewController.swift in Sources */,
 				633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */,
 				633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */,
+				EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
