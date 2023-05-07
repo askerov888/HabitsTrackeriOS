@@ -41,7 +41,6 @@ final class RegisterViewController: UIViewController {
         textField.keyboardType = .default
         textField.layer.masksToBounds = true
         textField.isSecureTextEntry = true
-        textField.enablePasswordToggle()
         textField.layer.cornerRadius = C.cornerRadiusTextFields
         textField.backgroundColor = .systemGray5
         textField.textAlignment = .center
