@@ -8,6 +8,11 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    private var presenter = LoginPresenter()
+    private var subscriptions: Set<AnyCancellable> = []
 
     //MARK: - Subviews
     
@@ -103,6 +108,10 @@ private extension LoginViewController {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(didTapLogIn), for: .touchUpInside)
+        presenter.isAuthenticationFormValid.sink { [weak self] validState in
+            loginButton.isEnabled = validState
+        }
+        .store(in: &subscriptions)
     }
     
 }
@@ -121,25 +130,15 @@ private extension LoginViewController {
     @objc func didTapToDismiss() {
         view.endEditing(true)
     }
-    
-    @objc func didTapLoginButton() {
         
-    }
-    
-    @objc func didChangeFirsNameField() {
-        
-    }
-    
-    @objc func didChangeLastNameField() {
-        
-    }
-    
     @objc func didChangeEmailField() {
-        
+        presenter.email = emailTextField.text
+        presenter.validateAuthenticationForm()
     }
     
     @objc func didChangePasswordField() {
-        
+        presenter.password = passwordTextField.text
+        presenter.validateAuthenticationForm()
     }
     
     @objc func didTapLogIn() {

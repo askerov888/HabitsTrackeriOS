@@ -14,6 +14,8 @@
 		C14BEC604615C8B94F2BC9F3 /* Pods_HabitsTrackeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */; };
 		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 		EAEAE0272A07CAF500DA2CEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */; };
+		EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */; };
+		EAEAE02D2A08DBC900DA2CEB /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		EDFA47962A68F82B8A9C5352 /* Pods-HabitsTrackeriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTrackeriOS.release.xcconfig"; path = "Target Support Files/Pods-HabitsTrackeriOS/Pods-HabitsTrackeriOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +70,8 @@
 				633F28422A0665DE00124B24 /* AppDelegate.swift */,
 				633F28442A0665DE00124B24 /* SceneDelegate.swift */,
 				EAEAE01C2A06B10A00DA2CEB /* View */,
+				EAEAE0292A07D00C00DA2CEB /* Presenter */,
+				EAEAE0282A07CFFE00DA2CEB /* Model */,
 				633F284B2A0665E100124B24 /* Assets.xcassets */,
 				633F284D2A0665E100124B24 /* LaunchScreen.storyboard */,
 				633F28502A0665E100124B24 /* Info.plist */,
@@ -105,6 +111,22 @@
 				EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		EAEAE0282A07CFFE00DA2CEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EAEAE0292A07D00C00DA2CEB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */,
+				EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAEAE02D2A08DBC900DA2CEB /* LoginPresenter.swift in Sources */,
+				EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */,
 				633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */,
 				633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */,
 				EAEAE0272A07CAF500DA2CEB /* LoginViewController.swift in Sources */,

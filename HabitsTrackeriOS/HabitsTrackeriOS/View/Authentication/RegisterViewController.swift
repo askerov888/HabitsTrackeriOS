@@ -5,9 +5,15 @@
 //  Created by Dmitryi Velko on 06.05.2023.
 //
 
+import Combine
 import UIKit
 
 final class RegisterViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    private var presenter = RegisterPresenter()
+    private var subscriptions: Set<AnyCancellable> = []
 
     //MARK: - Subviews
     
@@ -124,6 +130,11 @@ private extension RegisterViewController {
         registerButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         
+        presenter.$isAuthenticationFormValid.sink { [weak self] validState in
+            self?.registerButton.isEnabled = validState
+        }
+        .store(in: &subscriptions)
+        
     }
     
 }
@@ -144,11 +155,13 @@ private extension RegisterViewController {
     }
     
     @objc func didChangeEmailField() {
-        
+        presenter.email = emailTextField.text
+        presenter.validateAuthenticationForm()
     }
     
     @objc func didChangePasswordField() {
-        
+        presenter.password = passwordTextField.text
+        presenter.validateAuthenticationForm()
     }
     
     @objc func didTapSignIn() {
