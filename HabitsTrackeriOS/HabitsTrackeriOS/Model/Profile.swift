@@ -8,15 +8,32 @@
 import Foundation
 import UIKit
 
-class Profile {
+class Profile: Codable {
+	var id: String
 	var name: String
-	var image: UIImage
-	var habits: [HabitProtocol]
+	var imageData: Data?
+	var habits: [Habit]?
+	var image: UIImage? {
+		get {
+			if let data = imageData {
+				return UIImage(data: data)
+			} else {
+				return nil
+			}
+		}
+		set {
+			if let image = newValue {
+				imageData = image.pngData()
+			} else {
+				imageData = nil
+			}
+		}
+	 }
 	
-	required init(name: String, image: UIImage, habits: [HabitProtocol]) {
+	required init(name: String, image: UIImage?, habits: [Habit]?) {
+		self.id = UUID().uuidString
 		self.name = name
 		self.image = image
 		self.habits = habits
 	}
 }
-

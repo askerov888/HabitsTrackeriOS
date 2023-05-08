@@ -16,6 +16,10 @@
 		63EFDEBC2A07F3EE0042BD58 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEBB2A07F3EE0042BD58 /* Habit.swift */; };
 		63EFDEBE2A0808550042BD58 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEBD2A0808550042BD58 /* Profile.swift */; };
 		63EFDEC22A080A1D0042BD58 /* HabbitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC12A080A1D0042BD58 /* HabbitFactory.swift */; };
+		63EFDEC42A083F0B0042BD58 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC32A083F0B0042BD58 /* MainViewController.swift */; };
+		63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */; };
+		63EFDECA2A0850EB0042BD58 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */; };
+		63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */; };
 		C14BEC604615C8B94F2BC9F3 /* Pods_HabitsTrackeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */; };
 		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +37,10 @@
 		63EFDEBB2A07F3EE0042BD58 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		63EFDEBD2A0808550042BD58 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		63EFDEC12A080A1D0042BD58 /* HabbitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitFactory.swift; sourceTree = "<group>"; };
+		63EFDEC32A083F0B0042BD58 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHabbit.swift; sourceTree = "<group>"; };
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EDFA47962A68F82B8A9C5352 /* Pods-HabitsTrackeriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTrackeriOS.release.xcconfig"; path = "Target Support Files/Pods-HabitsTrackeriOS/Pods-HabitsTrackeriOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 		63EFDEB92A07F39F0042BD58 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -105,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				63EFDEC12A080A1D0042BD58 /* HabbitFactory.swift */,
+				63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -129,8 +139,10 @@
 		EAEAE01C2A06B10A00DA2CEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63EFDEC32A083F0B0042BD58 /* MainViewController.swift */,
 				633F28462A0665DE00124B24 /* ViewController.swift */,
 				EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */,
+				63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,12 +263,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				633F28472A0665DE00124B24 /* ViewController.swift in Sources */,
+				63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */,
 				63EFDEBE2A0808550042BD58 /* Profile.swift in Sources */,
 				63EFDEBC2A07F3EE0042BD58 /* Habit.swift in Sources */,
 				63EFDEC22A080A1D0042BD58 /* HabbitFactory.swift in Sources */,
 				633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */,
+				63EFDECA2A0850EB0042BD58 /* MainPresenter.swift in Sources */,
+				63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */,
 				633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */,
 				EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */,
+				63EFDEC42A083F0B0042BD58 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
