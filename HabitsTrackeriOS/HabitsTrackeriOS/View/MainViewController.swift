@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 															style: .plain,
 										  target: self,
 										  action: #selector(signInAction))
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: nil)
+//		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: nil)
 	}
 	
 	// MARK: subviews
