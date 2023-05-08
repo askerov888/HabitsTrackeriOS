@@ -5,6 +5,7 @@
 //  Created by Dmitryi Velko on 07.05.2023.
 //
 
+import Combine
 import UIKit
 
 final class LoginViewController: UIViewController {
@@ -108,8 +109,8 @@ private extension LoginViewController {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
         loginButton.addTarget(self, action: #selector(didTapLogIn), for: .touchUpInside)
-        presenter.isAuthenticationFormValid.sink { [weak self] validState in
-            loginButton.isEnabled = validState
+        presenter.$isAuthenticationFormValid.sink { [weak self] validState in
+            self?.loginButton.isEnabled = validState
         }
         .store(in: &subscriptions)
     }
