@@ -42,7 +42,6 @@ class CreateHabitViewController: UIViewController {
 		scroll.addSubview(contentView)
 		
 		contentView.addSubview(titleVC)
-		contentView.addSubview(saveButton)
 		
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(nameField)
@@ -67,6 +66,8 @@ class CreateHabitViewController: UIViewController {
 		finishView.addSubview(finishDateLabel)
 		finishView.addSubview(finishDate)
 		contentView.addSubview(finishView)
+		
+		contentView.addSubview(saveButton)
 	}
 	
 	
@@ -92,14 +93,6 @@ class CreateHabitViewController: UIViewController {
 		label.font = .systemFont(ofSize: 30, weight: .bold)
 		label.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
 		return label
-	}()
-	
-	let saveButton: UIButton = {
-		let button = UIButton(type: .system)
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.setTitle("Save", for: .normal)
-		button.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
-		return button
 	}()
 	
 	let nameLabel: UILabel = {
@@ -302,6 +295,18 @@ class CreateHabitViewController: UIViewController {
 		date.layer.cornerRadius = 10
 		return date
 	}()
+	
+	let saveButton: UIButton = {
+		let button = UIButton(type: .system)
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+		button.layer.cornerRadius = 10
+		button.setTitle("Save", for: .normal)
+		button.setTitleColor(.white, for: .normal)
+		button.titleLabel?.font = .systemFont(ofSize: 25, weight: .medium)
+		button.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+		return button
+	}()
 
 	// MARK: - Actions
 	
@@ -324,10 +329,6 @@ extension CreateHabitViewController {
 			make.size.equalToSuperview()
 			make.height.equalToSuperview()
 			make.width.equalToSuperview()
-		}
-		saveButton.snp.makeConstraints { make in
-			make.trailing.equalToSuperview().offset(-15)
-			make.top.equalToSuperview().offset(15)
 		}
 		titleVC.snp.makeConstraints { make in
 			make.centerX.equalToSuperview()
@@ -430,6 +431,12 @@ extension CreateHabitViewController {
 		finishDate.snp.makeConstraints { make in
 			make.trailing.equalToSuperview().offset(-15)
 			make.top.equalToSuperview().offset(10)
+		}
+		saveButton.snp.makeConstraints { make in
+			make.width.equalTo(100)
+			make.height.equalTo(50)
+			make.centerX.equalTo(finishView.snp.centerX)
+			make.top.equalTo(finishView.snp.bottom).offset(20)
 		}
 	}
 }
