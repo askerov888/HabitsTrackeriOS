@@ -169,7 +169,8 @@ private extension RegisterViewController {
     }
     
     @objc func didTapLoginButton() {
-        
+        let vc = LoginViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
