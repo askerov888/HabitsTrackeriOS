@@ -8,7 +8,7 @@
 import UIKit
 
 class MainPresenter {
-	var view: MainViewController!
+	weak var vc: MainViewController!
 	var person = Profile(name: "adi", image: nil, habits: nil)
 	var habits: [Habit] = []
 	
@@ -23,6 +23,11 @@ class MainPresenter {
 	
 	func signInAction() {
 		let register = RegisterViewController()
-		view.navigationController?.pushViewController(register, animated: true)
+		vc.present(register, animated: true, completion: nil)
+	}
+	
+	func createHabitAction() {
+		let createHabitVC = CreateHabitViewController()
+		vc.present(createHabitVC, animated: true, completion: nil)
 	}
 }

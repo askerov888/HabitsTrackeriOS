@@ -39,7 +39,7 @@ class CellHabbit: UITableViewCell {
 	
 	func setData(habit: Habit) {
 		title.text = habit.title
-		habit.aim.forEach { (key, value) in
+		habit.measure.forEach { (key, value) in
 			aimText.text = String(key)
 			aimText.text! += " \(value)"
 		}

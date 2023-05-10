@@ -94,6 +94,11 @@ final class RegisterViewController: UIViewController {
         configureConstraints()
         
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		dismiss(animated: true, completion: nil)
+	}
 
 }
 

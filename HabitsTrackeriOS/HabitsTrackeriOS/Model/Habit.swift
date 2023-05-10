@@ -10,7 +10,7 @@ import Foundation
 protocol HabitProtocol: Codable {
 	var title: String {get set}
 	var description: String? {get set}
-	var aim: [Int: String] {get set}
+	var measure: [Int: String] {get set}
 	var schedule: [Int: DateChoice] {get set}
 	var periodStart: DateComponents {get set}
 	var periodFinish: DateComponents {get set}
@@ -19,7 +19,7 @@ protocol HabitProtocol: Codable {
 class Habit: HabitProtocol, Codable {
 	var title: String
 	var description: String?
-	var aim: [Int: String]
+	var measure: [Int: String]
 	var schedule: [Int : DateChoice]
 	var periodStart: DateComponents
 	var periodFinish: DateComponents
@@ -27,7 +27,7 @@ class Habit: HabitProtocol, Codable {
 	required init(title: String, description: String?, aim: [Int: String], schedule: [Int : DateChoice], periodStart: DateComponents, periodFinish: DateComponents) {
 		self.title = title
 		self.description = description
-		self.aim = aim
+		self.measure = aim
 		self.schedule = schedule
 		self.periodStart = periodStart
 		self.periodFinish = periodFinish

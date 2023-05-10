@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28422A0665DE00124B24 /* AppDelegate.swift */; };
 		633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28442A0665DE00124B24 /* SceneDelegate.swift */; };
-		633F28472A0665DE00124B24 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28462A0665DE00124B24 /* ViewController.swift */; };
 		633F284A2A0665DE00124B24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633F28482A0665DE00124B24 /* Main.storyboard */; };
 		633F284C2A0665E100124B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633F284B2A0665E100124B24 /* Assets.xcassets */; };
 		633F284F2A0665E100124B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633F284D2A0665E100124B24 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,8 @@
 		63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */; };
 		63EFDECA2A0850EB0042BD58 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */; };
 		63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */; };
+		63EFDECE2A09B7D90042BD58 /* CreateHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */; };
+		63EFDED02A09B7F60042BD58 /* CreateHabitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECF2A09B7F60042BD58 /* CreateHabitPresenter.swift */; };
 		C14BEC604615C8B94F2BC9F3 /* Pods_HabitsTrackeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */; };
 		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +30,6 @@
 		633F283F2A0665DE00124B24 /* HabitsTrackeriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsTrackeriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633F28422A0665DE00124B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		633F28442A0665DE00124B24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		633F28462A0665DE00124B24 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		633F28492A0665DE00124B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		633F284B2A0665E100124B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		633F284E2A0665E100124B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +41,8 @@
 		63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHabbit.swift; sourceTree = "<group>"; };
+		63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitViewController.swift; sourceTree = "<group>"; };
+		63EFDECF2A09B7F60042BD58 /* CreateHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenter.swift; sourceTree = "<group>"; };
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EDFA47962A68F82B8A9C5352 /* Pods-HabitsTrackeriOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitsTrackeriOS.release.xcconfig"; path = "Target Support Files/Pods-HabitsTrackeriOS/Pods-HabitsTrackeriOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				63EFDEC92A0850EB0042BD58 /* MainPresenter.swift */,
+				63EFDECF2A09B7F60042BD58 /* CreateHabitPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -139,8 +142,8 @@
 		EAEAE01C2A06B10A00DA2CEB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */,
 				63EFDEC32A083F0B0042BD58 /* MainViewController.swift */,
-				633F28462A0665DE00124B24 /* ViewController.swift */,
 				EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */,
 				63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */,
 			);
@@ -262,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				633F28472A0665DE00124B24 /* ViewController.swift in Sources */,
 				63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */,
 				63EFDEBE2A0808550042BD58 /* Profile.swift in Sources */,
 				63EFDEBC2A07F3EE0042BD58 /* Habit.swift in Sources */,
@@ -271,6 +273,8 @@
 				63EFDECA2A0850EB0042BD58 /* MainPresenter.swift in Sources */,
 				63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */,
 				633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */,
+				63EFDECE2A09B7D90042BD58 /* CreateHabitViewController.swift in Sources */,
+				63EFDED02A09B7F60042BD58 /* CreateHabitPresenter.swift in Sources */,
 				EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */,
 				63EFDEC42A083F0B0042BD58 /* MainViewController.swift in Sources */,
 			);
@@ -425,9 +429,9 @@
 				DEVELOPMENT_TEAM = WV8ZN37WK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HabitsTrackeriOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HabitTracker;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,9 +458,9 @@
 				DEVELOPMENT_TEAM = WV8ZN37WK4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HabitsTrackeriOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = HabitTracker;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

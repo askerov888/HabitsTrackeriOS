@@ -10,9 +10,10 @@ import SwiftUI
 import SnapKit
 
 class MainViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
-	var presenter: MainPresenter!
+	var mainPresenter: MainPresenter!
 	let cellReuseIdentifier = "cell"
 	
+	//MARK: - Lifecycle
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		config()
@@ -21,12 +22,12 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 		setConstraint()
 	}
 	
-	// MARK: config
+	// MARK: - config
 	private func config() {
-		presenter = MainPresenter()
+		mainPresenter = MainPresenter()
+		mainPresenter.vc = self
+		mainPresenter.load()
 		navigationController?.delegate = self
-		presenter.view = self
-		presenter.load()
 		view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 	}
 	
@@ -36,21 +37,29 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 		navigationController?.navigationBar.titleTextAttributes = textAttributes
 		navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"),
 															style: .plain,
-										  target: self,
-										  action: #selector(signInAction))
-//		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: nil)
+															target: self,
+															action: #selector(signInAction))
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add,
+														   target: self,
+														   action: #selector(createHabitAction))
+		
 	}
 	
-	// MARK: subviews
+	// MARK: - subviews
 	let tableView: UITableView = UITableView()
 
 	
-	// MARK: Actions
+	// MARK: - Actions
 	@objc func signInAction() {
-		presenter.signInAction()
+		mainPresenter.signInAction()
+	}
+	
+	@objc func createHabitAction() {
+		mainPresenter.createHabitAction()
 	}
 
-	// MARK: tableView
+	// MARK: - tableView
 	func setupTableView() {
 		view.addSubview(tableView)
 		tableView.delegate = self
@@ -73,7 +82,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return presenter.habits.count
+		return mainPresenter.habits.count
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,14 +91,14 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! CellHabbit
-		let habitModel = presenter.habits[indexPath.section]
+		let habitModel = mainPresenter.habits[indexPath.section]
 		cell.setData(habit: habitModel)
 		cell.selectionStyle = .none
 		return cell
 	}
 
 	
-	// MARK: constraint	
+	// MARK: - constraint
 	func setConstraint() {
 		tableView.snp.makeConstraints { make in
 			make.top.equalToSuperview()
