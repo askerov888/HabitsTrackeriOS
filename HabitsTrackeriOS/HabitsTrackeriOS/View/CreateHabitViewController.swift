@@ -30,6 +30,7 @@ class CreateHabitViewController: UIViewController {
 	
 	func config() {
 		createHabitPresenter = CreateHabitPresenter()
+		createHabitPresenter.vc = self
 		hideKeyboardTappedAround()
 		view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 		scroll.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 100)
@@ -53,13 +54,16 @@ class CreateHabitViewController: UIViewController {
 		contentView.addSubview(measureView)
 		measureView.addSubview(measureNameField)
 		measureView.addSubview(measureCountField)
-				
+		
+		replayView.addSubview(replayCountField)
+		replayView.addSubview(replayDateButton)
+		contentView.addSubview(replayView)
+		contentView.addSubview(replayLabel)
+		
 		startView.addSubview(startDateLabel)
 		startView.addSubview(startDate)
 		contentView.addSubview(startView)
-		
-		contentView.addSubview(replayDateButton)
-		
+				
 		finishView.addSubview(finishDateLabel)
 		finishView.addSubview(finishDate)
 		contentView.addSubview(finishView)
@@ -185,6 +189,15 @@ class CreateHabitViewController: UIViewController {
 		return textField
 	}()
 	
+	let replayLabel: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.text = "Reps"
+		label.font = .systemFont(ofSize: 15, weight: .medium)
+		label.textColor = .darkGray
+		return label
+	}()
+	
 	let replayView: UIView = {
 		let view = UIView()
 		view.translatesAutoresizingMaskIntoConstraints = false
@@ -209,9 +222,26 @@ class CreateHabitViewController: UIViewController {
 	
 	let replayDateButton: UIButton = {
 		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.setTitleColor(.placeholderDefaultColor, for: .normal)
+		button.layer.cornerRadius = 10
 		button.setTitle("Choose", for: .normal)
-		button.backgroundColor = .red
-		button.addTarget(self, action: #selector(changeReply), for: .touchUpInside)
+		button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+		
+		let data = ["Day", "Week", "Month", "Year"]
+		var menuItems: [UIAction] = []
+			
+		for item in data {
+			let action = UIAction(title: item) { action in
+				button.setTitle(item, for: .normal)
+				button.setTitleColor(.white, for: .normal)
+			}
+			menuItems.append(action)
+		}
+		let menu = UIMenu(title: "Need to choose", children: menuItems)
+		button.menu = menu
+		button.showsMenuAsPrimaryAction = true
+				
 		return button
 	}()
 	
@@ -275,12 +305,8 @@ class CreateHabitViewController: UIViewController {
 
 	// MARK: - Actions
 	
-	@objc func changeReply() {
-		createHabitPresenter.changeReply()
-	}
-	
 	@objc func saveHabit() {
-		print("hello")
+		print("save")
 	}
 
 }
@@ -332,7 +358,7 @@ extension CreateHabitViewController {
 		measureLabel.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
 			make.trailing.equalToSuperview().offset(-15)
-			make.top.equalTo(descriptionTextView.snp.bottom).offset(15)
+			make.top.equalTo(descriptionTextView.snp.bottom).offset(10)
 		}
 		measureView.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
@@ -347,17 +373,40 @@ extension CreateHabitViewController {
 			make.width.equalTo(200)
 		}
 		measureCountField.snp.makeConstraints { make in
-			make.trailing.equalToSuperview().offset(-10)
+			make.trailing.equalToSuperview().offset(-15)
 			make.centerY.equalToSuperview()
 			make.height.equalTo(startDate.frame.height)
 			make.width.equalTo(70)
 		}
 		
+		replayLabel.snp.makeConstraints { make in
+			make.leading.equalToSuperview().offset(15)
+			make.trailing.equalToSuperview().offset(-15)
+			make.top.equalTo(measureView.snp.bottom).offset(10)
+		}
+		replayView.snp.makeConstraints { make in
+			make.leading.equalToSuperview().offset(15)
+			make.trailing.equalToSuperview().offset(-15)
+			make.top.equalTo(replayLabel.snp.bottom).offset(5)
+			make.height.equalTo(startDate.frame.height + 20)
+		}
+		replayCountField.snp.makeConstraints { make in
+			make.leading.equalToSuperview().offset(15)
+			make.centerY.equalToSuperview()
+			make.height.equalTo(startDate.frame.height)
+			make.width.equalTo(100)
+		}
+		replayDateButton.snp.makeConstraints { make in
+			make.trailing.equalToSuperview().offset(-15)
+			make.centerY.equalToSuperview()
+			make.height.equalTo(startDate.frame.height)
+			make.width.equalTo(200)
+		}
 		
 		startView.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
 			make.trailing.equalToSuperview().offset(-15)
-			make.top.equalTo(measureView.snp.bottom).offset(15)
+			make.top.equalTo(replayView.snp.bottom).offset(15)
 			make.height.equalTo(startDate.frame.height + 20)
 		}
 		startDateLabel.snp.makeConstraints { make in
@@ -365,7 +414,7 @@ extension CreateHabitViewController {
 			make.top.equalToSuperview().offset(15)
 		}
 		startDate.snp.makeConstraints { make in
-			make.trailing.equalToSuperview().offset(-10)
+			make.trailing.equalToSuperview().offset(-15)
 			make.top.equalToSuperview().offset(10)
 		}
 		finishView.snp.makeConstraints { make in
@@ -379,14 +428,8 @@ extension CreateHabitViewController {
 			make.top.equalToSuperview().offset(15)
 		}
 		finishDate.snp.makeConstraints { make in
-			make.trailing.equalToSuperview().offset(-10)
+			make.trailing.equalToSuperview().offset(-15)
 			make.top.equalToSuperview().offset(10)
-		}
-		replayDateButton.snp.makeConstraints { make in
-			make.leading.equalToSuperview().offset(10)
-			make.top.equalTo(finishDate.snp.bottom).offset(15)
-			make.height.equalTo(30)
-			make.width.equalTo(100)
 		}
 	}
 }
