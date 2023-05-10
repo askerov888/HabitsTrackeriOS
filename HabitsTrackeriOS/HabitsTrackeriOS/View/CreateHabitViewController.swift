@@ -221,7 +221,7 @@ class CreateHabitViewController: UIViewController {
 		button.setTitle("Choose", for: .normal)
 		button.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
 		
-		let data = ["Day", "Week", "Month", "Year"]
+		let data = DateChoise.choice
 		var menuItems: [UIAction] = []
 			
 		for item in data {
@@ -304,14 +304,36 @@ class CreateHabitViewController: UIViewController {
 		button.setTitle("Save", for: .normal)
 		button.setTitleColor(.white, for: .normal)
 		button.titleLabel?.font = .systemFont(ofSize: 25, weight: .medium)
-		button.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+		button.addTarget(self, action: #selector(saveHabit), for: .allEvents)
 		return button
 	}()
 
 	// MARK: - Actions
 	
-	@objc func saveHabit() {
-		print("save")
+	@objc func saveHabit(sender:UIButton!) {
+		guard
+		!(nameField.text == nil || nameField.text == ""),
+		!(descriptionTextView.text.isEmpty || descriptionTextView.text == "Description"),
+		!(measureNameField.text == nil || measureNameField.text == ""),
+		!(measureCountField.text == "" || measureCountField.text == nil),
+		!(replayDateButton.currentTitle == "" || replayDateButton.currentTitle == nil)
+			
+		else {
+			createHabitPresenter.showAlertError()
+			return
+		}
+		let name = nameField.text!
+		let description = descriptionTextView.text
+		let measure: [String: Int] = [measureNameField.text!:Int(measureCountField.text!)!]
+		let schedule: [Int: String] = [Int(replayCountField.text!)!:replayDateButton.currentTitle!]
+		let start = startDate.calendar!
+		let finish = finishDate.calendar!
+		
+		print("GOON")
+	
+		let savedHabit = Habit(title: name, description: description, measure: measure, schedule: schedule, periodStart: start, periodFinish: finish)
+		createHabitPresenter.saveHabit(habit: savedHabit)
+		createHabitPresenter.showAlertSave()
 	}
 
 }

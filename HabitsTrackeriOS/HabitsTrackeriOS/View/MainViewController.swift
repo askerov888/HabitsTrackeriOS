@@ -14,6 +14,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 	let cellReuseIdentifier = "cell"
 	
 	//MARK: - Lifecycle
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		tableView.reloadData()
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		config()

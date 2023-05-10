@@ -11,6 +11,7 @@
 		6337F05D2A0C109500B682F4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337F0512A0C0F2100B682F4 /* Profile.swift */; };
 		6337F05E2A0C109900B682F4 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337F04F2A0C0F1200B682F4 /* Habit.swift */; };
 		6337F05F2A0C10A300B682F4 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337F0532A0C0F3200B682F4 /* MainPresenter.swift */; };
+		6337F0642A0C393A00B682F4 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6337F0632A0C393A00B682F4 /* TestData.swift */; };
 		633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28422A0665DE00124B24 /* AppDelegate.swift */; };
 		633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28442A0665DE00124B24 /* SceneDelegate.swift */; };
 		633F284C2A0665E100124B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633F284B2A0665E100124B24 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		6337F0532A0C0F3200B682F4 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		6337F0552A0C0F7B00B682F4 /* CreateHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenter.swift; sourceTree = "<group>"; };
 		6337F0612A0C119A00B682F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6337F0632A0C393A00B682F4 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		633F283F2A0665DE00124B24 /* HabitsTrackeriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitsTrackeriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633F28422A0665DE00124B24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		633F28442A0665DE00124B24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				6337F04F2A0C0F1200B682F4 /* Habit.swift */,
 				6337F0512A0C0F2100B682F4 /* Profile.swift */,
+				6337F0632A0C393A00B682F4 /* TestData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				6337F05F2A0C10A300B682F4 /* MainPresenter.swift in Sources */,
 				6337F05E2A0C109900B682F4 /* Habit.swift in Sources */,
 				6337F05D2A0C109500B682F4 /* Profile.swift in Sources */,
+				6337F0642A0C393A00B682F4 /* TestData.swift in Sources */,
 				EAEAE02D2A08DBC900DA2CEB /* LoginPresenter.swift in Sources */,
 				EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */,
 				63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: Prepared Habbits
 
-func running(periodStart: DateComponents, periodFinish: DateComponents) -> Habit {
+func running(periodStart: Calendar, periodFinish: Calendar) -> Habit {
 	let habit = Habit(title: "running",
 		  description: """
 Regular running or jogging offers many health benefits. Running can:
@@ -19,14 +19,14 @@ Regular running or jogging offers many health benefits. Running can:
 	- burn plenty of kilojoules
 	- help maintain a healthy weight.
 """,
-		  aim: [5: "km"],
-		  schedule: [3: .week],
+		  measure: ["km":5],
+		  schedule: [3: "week"],
 		  periodStart: periodStart,
 		  periodFinish: periodFinish)
 	return habit
 }
 
-func walking(periodStart: DateComponents, periodFinish: DateComponents) -> Habit {
+func walking(periodStart: Calendar, periodFinish: Calendar) -> Habit {
 	let habit = Habit(
 	title: "walking",
 	description: """
@@ -34,47 +34,47 @@ Walking for 30 minutes a day or more on most days of the week is a great way to 
 If you can’t manage 30 minutes a day, remember even short walks more frequently can be beneficial.
 Walking with others can turn exercise into an enjoyable social occasion.
 """,
-	aim: [20: "minutes"],
-	schedule: [3: .week],
+	measure: ["minutes":20],
+	schedule: [3: "week"],
 	periodStart: periodStart,
 	periodFinish: periodFinish)
 	return habit
 }
 
-func yoga(periodStart: DateComponents, periodFinish: DateComponents) -> Habit {
+func yoga(periodStart: Calendar, periodFinish: Calendar) -> Habit {
 	let habit = Habit(
 	title: "yoga",
 	description: """
 Yoga offers physical and mental health benefits for people of all ages. And, if you’re going through an illness, recovering from surgery or living with a chronic condition, yoga can become an integral part of your treatment and potentially hasten healing.
 """,
-	aim: [30: "minutes"],
-	schedule: [7: .week],
+	measure: ["minutes":30],
+	schedule: [7: "week"],
 	periodStart: periodStart,
 	periodFinish: periodFinish)
 	return habit
 }
 
-func reading(periodStart: DateComponents, periodFinish: DateComponents) -> Habit {
+func reading(periodStart: Calendar, periodFinish: Calendar) -> Habit {
 	let habit = Habit(
 	title: "reading",
 	description: """
 Book coaches one’s imagination to think big. A constant fuel is required by our mind to develop knowledge and enrich our perspective, here the importance of reading comes into play. Reading is not just a leisure activity but can also be beneficial when it comes to clearing some of the globally recognized competitive examinations . Developing a reading habit can help you go a long way both personally as well as in acing many examinations.
 """,
-	aim: [20: "minutes"],
-	schedule: [30: .mounth],
+	measure: ["minutes":20],
+	schedule: [30: "mounth"],
 	periodStart: periodStart,
 	periodFinish: periodFinish)
 	return habit
 }
 
-func drinking(periodStart: DateComponents, periodFinish: DateComponents) -> Habit {
+func drinking(periodStart: Calendar, periodFinish: Calendar) -> Habit {
 	let habit = Habit(
 	title: "drinking",
 	description: """
 Getting enough water every day is important for your health. Drinking water can prevent dehydration, a condition that can cause unclear thinking, result in mood change, cause your body to overheat, and lead to constipation and kidney stones. Water has no calories, so it can also help with managing body weight and reducing calorie intake when substituted for drinks with calories, such as sweet tea or regular soda.
 """,
-	aim: [3: "litre"],
-	schedule: [1: .day],
+	measure: ["litre":3],
+	schedule: [1: "day"],
 	periodStart: periodStart,
 	periodFinish: periodFinish)
 	return habit
@@ -95,7 +95,7 @@ class HabitFactory {
 	static let shared = HabitFactory()
 	private init() {}
 	
-	func getFromHabitList(title: listOfHabits, start: DateComponents, finish: DateComponents) -> Habit {
+	func getFromHabitList(title: listOfHabits, start: Calendar, finish: Calendar) -> Habit {
 		switch title {
 		case .running:
 			return running(periodStart: start, periodFinish: finish)

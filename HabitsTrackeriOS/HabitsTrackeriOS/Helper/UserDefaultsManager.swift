@@ -38,6 +38,7 @@ class UserDefaultsManager {
 				print(error.localizedDescription)
 			}
 		}
+//		print("GOON \(arrayhabits[0])")
 		return arrayhabits
 	}
 }
