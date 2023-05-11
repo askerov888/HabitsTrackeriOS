@@ -11,9 +11,12 @@ import Firebase
 
 class RegisterPresenter: ObservableObject {
     
+    //MARK: - Properties
+
     @Published var email: String?
     @Published var password: String?
     @Published var isAuthenticationFormValid: Bool = false
+    @Published var error: String?
     @Published var user: User?
     
     private var subscriptions: Set<AnyCancellable> = []
@@ -40,8 +43,10 @@ class RegisterPresenter: ObservableObject {
         guard let email = email,
               let password = password else { return }
         AuthManager.shared.registerUser(email: email, password: password)
-            .sink { _ in
-                print("")
+            .sink { [weak self] completion in
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
             } receiveValue: { [weak self] user in
                 self?.user = user
             }

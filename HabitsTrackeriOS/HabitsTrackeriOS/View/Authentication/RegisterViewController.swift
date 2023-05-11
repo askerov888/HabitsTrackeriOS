@@ -140,9 +140,22 @@ private extension RegisterViewController {
         }
         .store(in: &subscriptions)
         
+        // если юзер в системе то пушим профиль
         presenter.$user.sink { [weak self] user in
-            print(user)
+            guard user != nil else { return }
+            let profileVC = ProfileViewController()
+            self?.navigationController?.pushViewController(profileVC, animated: false)
         }
+        .store(in: &subscriptions)
+        
+        // алерт с ошибками при регистрации
+        // например если пользователь пытается зарегить почту которая уже есть в базе
+        presenter.$error.sink { [weak self] errorString in
+            guard let error = errorString else { return }
+            self?.presentAlert(with: error)
+        }
+        .store(in: &subscriptions)
+        
         
     }
     
@@ -179,7 +192,8 @@ private extension RegisterViewController {
     
     @objc func didTapLoginButton() {
         let vc = LoginViewController()
-        self.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true)
     }
     
 }

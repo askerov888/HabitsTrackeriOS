@@ -5,6 +5,7 @@
 //  Created by Dmitryi Velko on 11.05.2023.
 //
 
+import Combine
 import FirebaseAuth
 import UIKit
 import PhotosUI
@@ -26,7 +27,7 @@ class ProfileViewController: UIViewController {
         imageView.backgroundColor = .lightGray
         imageView.layer.borderWidth = 2
         imageView.layer.borderColor = UIColor.lightGray.cgColor
-        imageView.image = UIImage(named: "iconAvatar")
+        imageView.image = UIImage(systemName: "camera.fill")
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .gray
         imageView.isUserInteractionEnabled = true
@@ -35,7 +36,7 @@ class ProfileViewController: UIViewController {
     
     private let userName: UILabel = {
         let name = UILabel()
-        name.text = ""
+        name.text = "Test Name"
         return name
     }()
 
@@ -51,7 +52,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false 
         handleAuthentication()
     }
     
@@ -66,6 +67,10 @@ private extension ProfileViewController {
     func setupVC() {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Profile"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(didTapSignOut))
     }
     
     func setupSubviews() {
@@ -86,9 +91,10 @@ private extension ProfileViewController {
     
     func handleAuthentication() {
         if Auth.auth().currentUser == nil {
-            let vc = UINavigationController(rootViewController: RegisterViewController())
-            vc.modalPresentationStyle = .fullScreen
+            let vc = RegisterViewController()
+//            let vc = UINavigationController(rootViewController: RegisterViewController())
             present(vc, animated: false)
+            
         }
     }
     
@@ -105,6 +111,11 @@ private extension ProfileViewController {
         let picker = PHPickerViewController(configuration: configuration)
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    @objc func didTapSignOut() {
+        try? Auth.auth().signOut()
+        handleAuthentication()
     }
     
     

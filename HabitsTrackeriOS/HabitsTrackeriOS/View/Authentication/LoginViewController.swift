@@ -113,6 +113,21 @@ private extension LoginViewController {
             self?.loginButton.isEnabled = validState
         }
         .store(in: &subscriptions)
+        
+        // если юзер в системе то пушим профиль
+        presenter.$user.sink { [weak self] user in
+            guard user != nil else { return }
+            let profileVC = ProfileViewController()
+            self?.navigationController?.pushViewController(profileVC, animated: false)
+        }
+        .store(in: &subscriptions)
+        
+        // алерт с ошибками при логине
+        presenter.$error.sink { [weak self] errorString in
+            guard let error = errorString else { return }
+            self?.presentAlert(with: error)
+        }
+        .store(in: &subscriptions)
     }
     
 }
@@ -143,7 +158,7 @@ private extension LoginViewController {
     }
     
     @objc func didTapLogIn() {
-        
+        presenter.loginUser()
     }
     
 }
