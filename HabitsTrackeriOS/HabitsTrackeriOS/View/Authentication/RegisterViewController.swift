@@ -20,7 +20,7 @@ final class RegisterViewController: UIViewController {
     private let registerTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Log in"
+        label.text = "Register"
         label.font = .systemFont(ofSize: 26, weight: .bold)
         return label
     }()
@@ -61,7 +61,7 @@ final class RegisterViewController: UIViewController {
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Log in", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = .systemBlue
@@ -73,7 +73,7 @@ final class RegisterViewController: UIViewController {
     private let isThereAccountTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "No account?"
+        label.text = "already have an account?"
         label.font = .systemFont(ofSize: 12, weight: .light)
         label.tintColor = .systemGray
         return label
@@ -82,7 +82,7 @@ final class RegisterViewController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Register", for: .normal)
+        button.setTitle("Log in", for: .normal)
         button.tintColor = .systemBlue
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         return button
@@ -132,13 +132,17 @@ private extension RegisterViewController {
     func bindViews() {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
-        registerButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         
         presenter.$isAuthenticationFormValid.sink { [weak self] validState in
             self?.registerButton.isEnabled = validState
         }
         .store(in: &subscriptions)
+        
+        presenter.$user.sink { [weak self] user in
+            print(user)
+        }
         
     }
     
@@ -169,8 +173,8 @@ private extension RegisterViewController {
         presenter.validateAuthenticationForm()
     }
     
-    @objc func didTapSignIn() {
-        
+    @objc func didTapRegister() {
+        presenter.createUser()
     }
     
     @objc func didTapLoginButton() {

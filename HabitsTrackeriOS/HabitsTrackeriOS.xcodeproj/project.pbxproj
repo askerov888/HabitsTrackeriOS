@@ -32,6 +32,8 @@
 		EACE25232A0CBF3D0014351D /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = EACE25222A0CBF3D0014351D /* FirebaseStorageCombine-Community */; };
 		EACE25252A0CC3E20014351D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EACE25242A0CC3E20014351D /* GoogleService-Info.plist */; };
 		EACE25282A0CC71B0014351D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACE25272A0CC71B0014351D /* AuthManager.swift */; };
+		EACE252A2A0CDB510014351D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACE25292A0CDB510014351D /* ProfileViewController.swift */; };
+		EACE252C2A0CDD110014351D /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACE252B2A0CDD110014351D /* ProfilePresenter.swift */; };
 		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 		EAEAE0272A07CAF500DA2CEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */; };
 		EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */; };
@@ -62,6 +64,8 @@
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACE25242A0CC3E20014351D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EACE25272A0CC71B0014351D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EACE25292A0CDB510014351D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EACE252B2A0CDD110014351D /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */,
 				63EFDEC32A083F0B0042BD58 /* MainViewController.swift */,
 				63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */,
+				EACE25292A0CDB510014351D /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */,
 				6337F0532A0C0F3200B682F4 /* MainPresenter.swift */,
 				6337F0552A0C0F7B00B682F4 /* CreateHabitPresenter.swift */,
+				EACE252B2A0CDD110014351D /* ProfilePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -348,12 +354,14 @@
 				EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */,
 				63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */,
 				63EFDEC22A080A1D0042BD58 /* HabbitFactory.swift in Sources */,
+				EACE252A2A0CDB510014351D /* ProfileViewController.swift in Sources */,
 				633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */,
 				63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */,
 				EACE25282A0CC71B0014351D /* AuthManager.swift in Sources */,
 				633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */,
 				EAEAE0272A07CAF500DA2CEB /* LoginViewController.swift in Sources */,
 				63EFDECE2A09B7D90042BD58 /* CreateHabitViewController.swift in Sources */,
+				EACE252C2A0CDD110014351D /* ProfilePresenter.swift in Sources */,
 				6337F05C2A0C108600B682F4 /* CreateHabitPresenter.swift in Sources */,
 				EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */,
 				63EFDEC42A083F0B0042BD58 /* MainViewController.swift in Sources */,
