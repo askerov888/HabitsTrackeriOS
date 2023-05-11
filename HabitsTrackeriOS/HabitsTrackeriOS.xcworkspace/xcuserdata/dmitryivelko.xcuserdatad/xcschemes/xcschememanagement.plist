@@ -4,20 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Kingfisher.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground) 1.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
 		</dict>
-		<key>Pods-HabitsTrackeriOS.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground) 2.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>6</integer>
 		</dict>
-		<key>SnapKit.xcscheme_^#shared#^_</key>
+		<key>Promises (Playground).xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 </dict>

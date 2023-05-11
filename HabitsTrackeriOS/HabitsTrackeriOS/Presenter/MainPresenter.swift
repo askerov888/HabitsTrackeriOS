@@ -20,8 +20,11 @@ class MainPresenter {
 	}
 	
 	func signInAction() {
-		let register = RegisterViewController()
-		vc.present(register, animated: true, completion: nil)
+        let profileVC = ProfileViewController()
+        vc.navigationController?.pushViewController(profileVC, animated: true)
+        
+//		let register = RegisterViewController()
+//        vc.navigationController?.pushViewController(register, animated: true)
 	}
 	
 	func createHabitAction() {
