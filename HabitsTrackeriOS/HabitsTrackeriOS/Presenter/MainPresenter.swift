@@ -9,7 +9,7 @@ import UIKit
 
 class MainPresenter {
 	weak var vc: MainViewController!
-	var person = Profile(name: "adi", image: nil, habits: nil)
+//	var person = Profile(name: "adi", image: nil, habits: nil)
 	var habits: [Habit] = []
 	
 	func load() {
@@ -22,10 +22,11 @@ class MainPresenter {
 	}
 	
 	func signInAction() {
-//        let profileVC = ProfileViewController()
-//        vc.navigationController?.pushViewController(profileVC, animated: true)
-		let register = RegisterViewController()
-        vc.navigationController?.pushViewController(register, animated: true)
+        let profileVC = ProfileViewController()
+        vc.navigationController?.pushViewController(profileVC, animated: true)
+        
+//		let register = RegisterViewController()
+//        vc.navigationController?.pushViewController(register, animated: true)
 	}
 	
 	func createHabitAction() {

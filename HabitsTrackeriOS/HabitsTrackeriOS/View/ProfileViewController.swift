@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Properties
     
     private var presenter = ProfilePresenter()
+    private var subscriptions: Set<AnyCancellable> = []
 
     //MARK: - Subviews
 
@@ -36,7 +37,10 @@ class ProfileViewController: UIViewController {
     
     private let userName: UILabel = {
         let name = UILabel()
+        name.translatesAutoresizingMaskIntoConstraints = false
         name.text = "Test Name"
+        name.font = .systemFont(ofSize: 16, weight: .bold)
+        name.textColor = .black
         return name
     }()
 
@@ -47,6 +51,7 @@ class ProfileViewController: UIViewController {
         setupSubviews()
         addGesture()
         configureConstraints()
+        bindViews()
         
     }
     
@@ -54,6 +59,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false 
         handleAuthentication()
+        presenter.retrieveUser()
     }
     
 
@@ -83,6 +89,16 @@ private extension ProfileViewController {
 
     }
     
+    func bindViews() {
+        presenter.$profileUser.sink { [weak self] user in
+            guard let user = user else { return }
+            DispatchQueue.main.async {
+                self?.userName.text = user.id
+            }
+        }
+        .store(in: &subscriptions)
+    }
+    
 }
 
 //MARK: - Private func
@@ -94,8 +110,11 @@ private extension ProfileViewController {
             let vc = RegisterViewController()
 //            let vc = UINavigationController(rootViewController: RegisterViewController())
             present(vc, animated: false)
-            
         }
+    }
+    
+    func completeUserOnboarding() {
+        
     }
     
 }
@@ -133,7 +152,13 @@ private extension ProfileViewController {
             avatarPlaceholderImageView.heightAnchor.constraint(equalToConstant: 60)
         ]
         
+        let userNameConstraints = [
+            userName.topAnchor.constraint(equalTo: avatarPlaceholderImageView.bottomAnchor, constant: 20),
+            userName.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ]
+        
         NSLayoutConstraint.activate(avatarPlaceholderImageViewConstraints)
+        NSLayoutConstraint.activate(userNameConstraints)
     }
     
 }
