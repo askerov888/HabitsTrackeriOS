@@ -115,7 +115,7 @@ private extension RegisterViewController {
     func setupVC() {
         view.backgroundColor = .systemBackground
     }
-    
+
     func setupSubviews() {
         view.addSubview(registerTitleLabel)
         view.addSubview(emailTextField)

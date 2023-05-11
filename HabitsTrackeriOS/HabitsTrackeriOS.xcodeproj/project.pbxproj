@@ -21,6 +21,7 @@
 		63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */; };
 		63EFDECE2A09B7D90042BD58 /* CreateHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */; };
 		C14BEC604615C8B94F2BC9F3 /* Pods_HabitsTrackeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */; };
+		EACE25102A0CBD370014351D /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = EACE250F2A0CBD370014351D /* GoogleService-Info (1).plist */; };
 		EAEAE01E2A06B14B00DA2CEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */; };
 		EAEAE0272A07CAF500DA2CEB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */; };
 		EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */; };
@@ -49,6 +50,7 @@
 		63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitViewController.swift; sourceTree = "<group>"; };
 		63EFDECF2A09B7F60042BD58 /* CreateHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitPresenter.swift; sourceTree = "<group>"; };
 		A00D4E6A919F23091909C4C9 /* Pods_HabitsTrackeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitsTrackeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EACE250F2A0CBD370014351D /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
 		EAEAE01D2A06B14B00DA2CEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		EAEAE0262A07CAF500DA2CEB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				EAEAE0282A07CFFE00DA2CEB /* Model */,
 				633F284B2A0665E100124B24 /* Assets.xcassets */,
 				6337F0612A0C119A00B682F4 /* Info.plist */,
+				EACE250F2A0CBD370014351D /* GoogleService-Info (1).plist */,
 				633F284D2A0665E100124B24 /* LaunchScreen.storyboard */,
 			);
 			path = HabitsTrackeriOS;
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				633F284F2A0665E100124B24 /* LaunchScreen.storyboard in Resources */,
+				EACE25102A0CBD370014351D /* GoogleService-Info (1).plist in Resources */,
 				633F284C2A0665E100124B24 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
