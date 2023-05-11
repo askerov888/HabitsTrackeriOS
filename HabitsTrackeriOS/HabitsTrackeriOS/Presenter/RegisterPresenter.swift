@@ -7,12 +7,16 @@
 
 import Combine
 import Foundation
+import Firebase
 
 class RegisterPresenter: ObservableObject {
     
     @Published var email: String?
     @Published var password: String?
     @Published var isAuthenticationFormValid: Bool = false
+    @Published var user: User?
+    
+    private var subscriptions: Set<AnyCancellable> = []
     
     // Проверка на валидность почты и пароля
     func validateAuthenticationForm() {
@@ -32,6 +36,15 @@ class RegisterPresenter: ObservableObject {
         return emailPred.evaluate(with: email)
     }
     
-    
+    func createUser(email: String, password: String) {
+        AuthManager.shared.registerUser(email: email, password: password)
+            .sink { _ in
+                print("")
+            } receiveValue: { [weak self] user in
+                self?.user = user
+            }
+            .store(in: &subscriptions)
+
+    }
     
 }
