@@ -173,9 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				EAEAE02A2A08CCFE00DA2CEB /* RegisterPresenter.swift */,
+				EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */,
 				6337F0532A0C0F3200B682F4 /* MainPresenter.swift */,
 				6337F0552A0C0F7B00B682F4 /* CreateHabitPresenter.swift */,
-				EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";

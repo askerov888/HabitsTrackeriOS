@@ -20,7 +20,7 @@ final class RegisterViewController: UIViewController {
     private let registerTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Sign in"
+        label.text = "Log in"
         label.font = .systemFont(ofSize: 26, weight: .bold)
         return label
     }()
@@ -61,7 +61,7 @@ final class RegisterViewController: UIViewController {
     private let registerButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Sign in", for: .normal)
+        button.setTitle("Log in", for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = .systemBlue
@@ -73,7 +73,7 @@ final class RegisterViewController: UIViewController {
     private let isThereAccountTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Already have an account?"
+        label.text = "No account?"
         label.font = .systemFont(ofSize: 12, weight: .light)
         label.tintColor = .systemGray
         return label
@@ -82,7 +82,7 @@ final class RegisterViewController: UIViewController {
     private let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Log in", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.tintColor = .systemBlue
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         return button
@@ -175,7 +175,7 @@ private extension RegisterViewController {
     
     @objc func didTapLoginButton() {
         let vc = LoginViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
     
 }

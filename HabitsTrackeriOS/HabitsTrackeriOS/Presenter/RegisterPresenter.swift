@@ -32,4 +32,6 @@ class RegisterPresenter: ObservableObject {
         return emailPred.evaluate(with: email)
     }
     
+    
+    
 }
