@@ -21,6 +21,7 @@ final class DatabaseManager {
 
     //MARK: - Func
 
+    // добавить юзера
     func collectionUsersAdd(user: User) -> AnyPublisher<Bool, Error> {
         let habitsTrackerUser = Profile(from: user)
         return db.collection(userPath).document(habitsTrackerUser.id).setData(from: habitsTrackerUser)
@@ -28,9 +29,17 @@ final class DatabaseManager {
             .eraseToAnyPublisher()
     }
     
+    // длстать юзера
     func collectionUsersRetrieve(id: String) -> AnyPublisher<Profile, Error> {
         db.collection(userPath).document(id).getDocument()
             .tryMap { try $0.data(as: Profile.self) }
+            .eraseToAnyPublisher()
+    }
+    
+    // обновить инфу юзера
+    func collectionUsers(updateFields: [String: Any], for id: String) -> AnyPublisher<Bool, Error> {
+        db.collection(userPath).document(id).updateData(updateFields)
+            .map { _ in true }
             .eraseToAnyPublisher()
     }
     
