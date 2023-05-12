@@ -16,6 +16,8 @@
 		633F28452A0665DE00124B24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633F28442A0665DE00124B24 /* SceneDelegate.swift */; };
 		633F284C2A0665E100124B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633F284B2A0665E100124B24 /* Assets.xcassets */; };
 		633F284F2A0665E100124B24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633F284D2A0665E100124B24 /* LaunchScreen.storyboard */; };
+		63D1CBA02A0DD19100430C3F /* EditHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1CB9F2A0DD19100430C3F /* EditHabitViewController.swift */; };
+		63D1CBA22A0DD27700430C3F /* EditHabitPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1CBA12A0DD27700430C3F /* EditHabitPresenter.swift */; };
 		63EFDEC22A080A1D0042BD58 /* HabbitFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC12A080A1D0042BD58 /* HabbitFactory.swift */; };
 		63EFDEC42A083F0B0042BD58 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC32A083F0B0042BD58 /* MainViewController.swift */; };
 		63EFDEC82A08434E0042BD58 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EFDEC72A08434E0042BD58 /* UserDefaultsManager.swift */; };
@@ -41,6 +43,8 @@
 		633F28442A0665DE00124B24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		633F284B2A0665E100124B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		633F284E2A0665E100124B24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63D1CB9F2A0DD19100430C3F /* EditHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitViewController.swift; sourceTree = "<group>"; };
+		63D1CBA12A0DD27700430C3F /* EditHabitPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitPresenter.swift; sourceTree = "<group>"; };
 		63EFDEBB2A07F3EE0042BD58 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		63EFDEBD2A0808550042BD58 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		63EFDEC12A080A1D0042BD58 /* HabbitFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitFactory.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				63EFDECD2A09B7D90042BD58 /* CreateHabitViewController.swift */,
 				63EFDEC32A083F0B0042BD58 /* MainViewController.swift */,
 				63EFDECB2A0859EB0042BD58 /* CellHabbit.swift */,
+				63D1CB9F2A0DD19100430C3F /* EditHabitViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				6337F0532A0C0F3200B682F4 /* MainPresenter.swift */,
 				6337F0552A0C0F7B00B682F4 /* CreateHabitPresenter.swift */,
 				EAEAE02C2A08DBC900DA2CEB /* LoginPresenter.swift */,
+				63D1CBA12A0DD27700430C3F /* EditHabitPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -300,9 +306,11 @@
 				6337F05F2A0C10A300B682F4 /* MainPresenter.swift in Sources */,
 				6337F05E2A0C109900B682F4 /* Habit.swift in Sources */,
 				6337F05D2A0C109500B682F4 /* Profile.swift in Sources */,
+				63D1CBA02A0DD19100430C3F /* EditHabitViewController.swift in Sources */,
 				6337F0642A0C393A00B682F4 /* TestData.swift in Sources */,
 				EAEAE02D2A08DBC900DA2CEB /* LoginPresenter.swift in Sources */,
 				EAEAE02B2A08CCFE00DA2CEB /* RegisterPresenter.swift in Sources */,
+				63D1CBA22A0DD27700430C3F /* EditHabitPresenter.swift in Sources */,
 				63EFDECC2A0859EC0042BD58 /* CellHabbit.swift in Sources */,
 				63EFDEC22A080A1D0042BD58 /* HabbitFactory.swift in Sources */,
 				633F28432A0665DE00124B24 /* AppDelegate.swift in Sources */,
