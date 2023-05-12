@@ -19,6 +19,10 @@ class MainPresenter {
 		}
 	}
 	
+	func deleteHabit(index: IndexPath) {
+		habits.remove(at: index.section)
+	}
+	
 	func signInAction() {
         let profileVC = ProfileViewController()
         vc.navigationController?.pushViewController(profileVC, animated: true)
