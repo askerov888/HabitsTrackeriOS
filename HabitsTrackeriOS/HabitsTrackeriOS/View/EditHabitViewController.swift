@@ -1,16 +1,16 @@
 //
-//  CreateHabitViewController.swift
+//  EditHabitViewController.swift
 //  HabitsTrackeriOS
 //
-//  Created by jarvis on 9/5/23.
+//  Created by jarvis on 12/5/23.
 //
 
 import UIKit
 import SnapKit
 import SwiftUI
 
-class CreateHabitViewController: UIViewController {
-	var createHabitPresenter: CreateHabitPresenter!
+class EditHabitViewController: UIViewController {
+	var editHabitPresenter: EditHabitPresenter!
 	
 	//MARK: - Lifecycle
 	
@@ -29,21 +29,37 @@ class CreateHabitViewController: UIViewController {
 	// MARK: - config
 	
 	func config() {
-		createHabitPresenter = CreateHabitPresenter()
-		createHabitPresenter.vc = self
+		editHabitPresenter = EditHabitPresenter()
+		editHabitPresenter.vc = self
 		hideKeyboardTappedAround()
 		view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 		scroll.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 100)
 		descriptionTextView.delegate = self
 		saveButton.addTarget(self, action: #selector(saveHabit), for: .touchUpInside)
+		navigationItem.title = "Edit habit"
+	}
+	
+	func setData(habit: Habit) {
+		nameField.text = habit.title
+		descriptionTextView.text = habit.description
+		descriptionTextView.textColor = .white
+		habit.measure.forEach { key, value in
+			measureNameField.text = key
+			measureCountField.text = String(value)
+		}
+		habit.schedule.forEach { key, value in
+			replayCountField.text = String(key)
+			replayDateButton.setTitle(value, for: .normal)
+			replayDateButton.setTitleColor(.white, for: .normal)
+		}
+		startDate.calendar = habit.periodStart
+		finishDate.calendar = habit.periodFinish
 	}
 	
 	func addSubviews() {
 		view.addSubview(scroll)
 		scroll.addSubview(contentView)
-		
-		contentView.addSubview(titleVC)
-		
+				
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(nameField)
 	
@@ -87,15 +103,6 @@ class CreateHabitViewController: UIViewController {
 		return view
 	}()
 	
-	let titleVC: UILabel = {
-		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.text = "Create Habit"
-		label.font = .systemFont(ofSize: 30, weight: .bold)
-		label.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-		return label
-	}()
-	
 	let nameLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
@@ -136,7 +143,7 @@ class CreateHabitViewController: UIViewController {
 		textView.textColor = .placeholderDefaultColor
 		textView.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
 		textView.layer.cornerRadius = 10
-		textView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 15, right: 5)
+		textView.textContainerInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
 		return textView
 	}()
 	
@@ -309,6 +316,7 @@ class CreateHabitViewController: UIViewController {
 	// MARK: - Actions
 	
 	@objc func saveHabit() {
+		print("tap!")
 		guard
 		!(nameField.text == nil || nameField.text == ""),
 		!(descriptionTextView.text.isEmpty || descriptionTextView.text == "Description"),
@@ -316,11 +324,11 @@ class CreateHabitViewController: UIViewController {
 		!(measureCountField.text == "" || measureCountField.text == nil),
 		!(replayDateButton.currentTitle == "" || replayDateButton.currentTitle == nil)
 		else {
-			createHabitPresenter.showAlertError(title: "Failed to save", message: "Fill in all the fields")
+			editHabitPresenter.showAlertError(title: "Failed to save", message: "Fill in all the fields")
 			return
 		}
 		guard (startDate.date < finishDate.date) else {
-			createHabitPresenter.showAlertError(title: "Failed to save", message: "Select the correct date")
+			editHabitPresenter.showAlertError(title: "Failed to save", message: "Select the correct date")
 			return
 		}
 		
@@ -331,16 +339,16 @@ class CreateHabitViewController: UIViewController {
 		let start = startDate.calendar!
 		let finish = finishDate.calendar!
 			
-		let savedHabit = Habit(title: name, description: description, measure: measure, schedule: schedule, periodStart: start, periodFinish: finish)
-		createHabitPresenter.saveHabit(habit: savedHabit)
-		createHabitPresenter.showAlertSave()
+		let updatedHabit = Habit(title: name, description: description, measure: measure, schedule: schedule, periodStart: start, periodFinish: finish)
+		editHabitPresenter.updateHabit(habit: updatedHabit)
+		editHabitPresenter.showAlertSave()
 	}
 
 }
 
 	// MARK: - constraint
 
-extension CreateHabitViewController {
+extension EditHabitViewController {
 	func setConstraint() {
 		scroll.snp.makeConstraints { make in
 			make.size.equalToSuperview()
@@ -352,20 +360,20 @@ extension CreateHabitViewController {
 			make.height.equalToSuperview()
 			make.width.equalToSuperview()
 		}
-		titleVC.snp.makeConstraints { make in
-			make.centerX.equalToSuperview()
-			make.top.equalToSuperview().offset(15)
-		}
+//		titleVC.snp.makeConstraints { make in
+//			make.centerX.equalToSuperview()
+//			make.top.equalToSuperview().offset(15)
+//		}
 		nameLabel.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
 			make.trailing.equalToSuperview().offset(-15)
-			make.top.equalTo(titleVC.snp.bottom).offset(15)
+			make.top.equalToSuperview().offset(15)
 		}
 		nameField.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
 			make.trailing.equalToSuperview().offset(-15)
 			make.top.equalTo(nameLabel.snp.bottom).offset(5)
-			make.height.equalTo(50)
+			make.height.equalTo(startDate.snp.height)
 		}
 		descriptionLabel.snp.makeConstraints { make in
 			make.leading.equalToSuperview().offset(15)
@@ -465,7 +473,7 @@ extension CreateHabitViewController {
 
 	// MARK: - Extensions
 
-extension CreateHabitViewController: UITextViewDelegate {
+extension EditHabitViewController: UITextViewDelegate {
 	func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
 		if textView.text == "Description" {
 			textView.text = ""
@@ -483,18 +491,3 @@ extension CreateHabitViewController: UITextViewDelegate {
 	}
 }
 
-extension UIViewController {
-	func hideKeyboardTappedAround() {
-		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dissmissKeyboard))
-		tap.cancelsTouchesInView = false
-		view.addGestureRecognizer(tap)
-	}
-	
-	@objc func dissmissKeyboard(){
-		view.endEditing(true)
-	}
-}
-
-extension UIColor {
-	static var placeholderDefaultColor = UIColor(red: 0, green: 0, blue: 0.0980392, alpha: 0.22)
-}

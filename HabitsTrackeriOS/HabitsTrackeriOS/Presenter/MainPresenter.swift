@@ -19,6 +19,10 @@ class MainPresenter {
 		}
 	}
 	
+	func deleteHabit(index: IndexPath) {
+		habits.remove(at: index.section)
+	}
+	
 	func signInAction() {
 		let register = RegisterViewController()
 		vc.present(register, animated: true, completion: nil)

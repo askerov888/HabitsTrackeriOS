@@ -1,5 +1,5 @@
 //
-//  CreateHabitPresenter.swift
+//  EditHabitPresenter.swift
 //  HabitsTrackeriOS
 //
 //  Created by jarvis on 9/5/23.
@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 
-class CreateHabitPresenter {
-	weak var vc: CreateHabitViewController!
+class EditHabitPresenter {
+	weak var vc: EditHabitViewController!
 	
-	func saveHabit(habit: Habit) {
+	func updateHabit(habit: Habit) {
 		UserDefaultsManager.shared.saveHabit(person: TestData.testProfile, habit: habit)
 	}
 	
@@ -28,7 +28,7 @@ class CreateHabitPresenter {
 		let alert = UIAlertController(title: "Successfully saved", message: nil, preferredStyle: .alert)
 		let close = UIAlertAction(title: "Ok", style: .default, handler: { _ in
 			alert.dismiss(animated: true, completion: nil)
-			self.vc.dismiss(animated: true, completion: nil)
+			self.vc.navigationController?.popViewController(animated: true)
 		})
 		alert.addAction(close)
 		vc.present(alert, animated: true, completion: nil)

@@ -91,7 +91,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 80
+		return 60
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,6 +101,21 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 		cell.selectionStyle = .none
 		return cell
 	}
+	
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let delete = UIContextualAction(style: .destructive, title: "delete", handler: { _,_,_  in
+			self.mainPresenter.deleteHabit(index: indexPath)
+			tableView.reloadData()
+		})
+		let edit = UIContextualAction(style: .normal, title: "edit", handler: { _,_,_  in
+			let vc = EditHabitViewController()
+			let habit = self.mainPresenter.habits[indexPath.section]
+			vc.setData(habit: habit)
+			self.navigationController?.pushViewController(vc, animated: true)
+		})
+		let trailingSwipe = UISwipeActionsConfiguration(actions: [delete, edit])
+		return trailingSwipe
+	}
 
 	
 	// MARK: - constraint
@@ -108,8 +123,8 @@ class MainViewController: UIViewController, UINavigationControllerDelegate, UITa
 		tableView.snp.makeConstraints { make in
 			make.top.equalToSuperview()
 			make.bottom.equalToSuperview()
-			make.leading.equalToSuperview().offset(10)
-			make.trailing.equalToSuperview().offset(-10)
+			make.leading.equalToSuperview().offset(2)
+			make.trailing.equalToSuperview().offset(-2)
 		}
 	}
 }
