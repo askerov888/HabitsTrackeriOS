@@ -10,8 +10,8 @@ import UIKit
 
 struct Profile: Codable {
 	let id: String
-	var name: String = ""
-    var avatarPath: String = ""
+	var name: String = "Name"
+    var avatarPath: String = "avatarPath"
     var habits: [Habit]?
     var isUserOnboarded: Bool = false
 //	var imageData: Data?

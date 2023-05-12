@@ -44,7 +44,7 @@ final class ProfileDataFormPresenter: ObservableObject {
             .sink { [weak self] completion in
                 switch completion {
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print("uploadProfilePhotoError = " + error.localizedDescription)
                     self?.error = error.localizedDescription
                 case .finished:
                     self?.updateUserData()
@@ -60,6 +60,7 @@ final class ProfileDataFormPresenter: ObservableObject {
         guard let userName,
               let avatarPath,
               let id = Auth.auth().currentUser?.uid else { return }
+        print("Проверка ID = \(id)")
         
         let updateFields: [String: Any] = [
             "userName": userName,
@@ -70,7 +71,7 @@ final class ProfileDataFormPresenter: ObservableObject {
         DatabaseManager.shared.collectionUsers(updateFields: updateFields, for: id)
             .sink { [weak self] completion in
                 if case .failure(let error) = completion {
-                    print(error.localizedDescription)
+                    print("updateFieldsError = " + error.localizedDescription)
                     self?.error = error.localizedDescription
                 }
             } receiveValue: { [weak self] onboardingState in

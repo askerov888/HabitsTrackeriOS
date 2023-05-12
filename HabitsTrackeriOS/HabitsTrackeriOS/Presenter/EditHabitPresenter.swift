@@ -12,7 +12,7 @@ class EditHabitPresenter {
 	weak var vc: EditHabitViewController!
 	
 	func updateHabit(habit: Habit) {
-		UserDefaultsManager.shared.saveHabit(person: TestData.testProfile, habit: habit)
+//		UserDefaultsManager.shared.saveHabit(person: TestData.testProfile, habit: habit)
 	}
 	
 	func showAlertError(title: String, message: String) {

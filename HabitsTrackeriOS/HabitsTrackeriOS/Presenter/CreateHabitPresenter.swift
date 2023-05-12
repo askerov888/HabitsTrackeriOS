@@ -12,7 +12,7 @@ class CreateHabitPresenter {
 	weak var vc: CreateHabitViewController!
 	
 	func saveHabit(habit: Habit) {
-		UserDefaultsManager.shared.saveHabit(person: TestData.testProfile, habit: habit)
+//		UserDefaultsManager.shared.saveHabit(person: TestData.testProfile, habit: habit)
 	}
 	
 	func showAlertError(title: String, message: String) {

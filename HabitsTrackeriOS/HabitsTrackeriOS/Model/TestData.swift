@@ -10,7 +10,7 @@ import Foundation
 struct TestData {
 	static let shared = TestData()
 	
-	static let testProfile = Profile(name: "testUser", image: nil, habits: nil)
+//	static let testProfile = Profile(name: "testUser", image: nil, habits: nil)
 	
 	func createTestHabits() -> [Habit] {
 		var habits = [Habit]()

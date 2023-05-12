@@ -8,7 +8,7 @@
 import Combine
 import FirebaseAuth
 import UIKit
-import PhotosUI
+import SDWebImage
 
 class ProfileViewController: UIViewController {
     
@@ -49,17 +49,16 @@ class ProfileViewController: UIViewController {
 
         setupVC()
         setupSubviews()
-        addGesture()
         configureConstraints()
-        bindViews()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = false 
-        handleAuthentication()
+        navigationController?.navigationBar.isHidden = false
+//        handleAuthentication()
         presenter.retrieveUser()
+        bindViews()
     }
     
 
@@ -73,27 +72,30 @@ private extension ProfileViewController {
     func setupVC() {
         view.backgroundColor = .systemBackground
         navigationItem.title = "Profile"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(didTapSignOut))
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"),
+                            style: .plain,
+                            target: self,
+                            action: #selector(didTapSignOut)),
+            UIBarButtonItem(image: UIImage(systemName: "pencil"),
+                            style: .plain,
+                            target: self,
+                            action: #selector(didTapEditor))
+        ]
     }
     
     func setupSubviews() {
         view.addSubview(avatarPlaceholderImageView)
         view.addSubview(userName)
     }
-    
-    func addGesture() {
-        avatarPlaceholderImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToPhoto)))
 
-    }
     
     func bindViews() {
         presenter.$profileUser.sink { [weak self] user in
             guard let user = user else { return }
             DispatchQueue.main.async {
-                self?.userName.text = user.id
+                self?.userName.text = user.name 
+                self?.avatarPlaceholderImageView.sd_setImage(with: URL(string: user.avatarPath))
             }
         }
         .store(in: &subscriptions)
@@ -105,13 +107,13 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
     
-    func handleAuthentication() {
-        if Auth.auth().currentUser == nil {
-            let vc = RegisterViewController()
-//            let vc = UINavigationController(rootViewController: RegisterViewController())
-            present(vc, animated: false)
-        }
-    }
+//    func handleAuthentication() {
+//        if Auth.auth().currentUser == nil {
+//            let vc = RegisterViewController()
+////            let vc = UINavigationController(rootViewController: RegisterViewController())
+//            present(vc, animated: false)
+//        }
+//    }
     
     func completeUserOnboarding() {
         
@@ -123,18 +125,15 @@ private extension ProfileViewController {
 
 private extension ProfileViewController {
     
-    @objc func didTapToPhoto() {
-        var configuration = PHPickerConfiguration()
-        configuration.filter = .images
-        configuration.selectionLimit = 1
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        present(picker, animated: true)
-    }
-    
     @objc func didTapSignOut() {
         try? Auth.auth().signOut()
-        handleAuthentication()
+        self.dismiss(animated: true)
+//        handleAuthentication()
+    }
+    
+    @objc func didTapEditor() {
+        let vc = ProfileDataFormViewController()
+        navigationController?.present(vc, animated: true)
     }
     
     
@@ -163,23 +162,5 @@ private extension ProfileViewController {
     
 }
 
-//MARK: - PHPickerViewControllerDelegate
 
-extension ProfileViewController: PHPickerViewControllerDelegate {
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        picker.dismiss(animated: true)
-        
-        for result in results {
-            result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
-                if let image = object as? UIImage {
-                    DispatchQueue.main.async {
-                        self?.avatarPlaceholderImageView.image = image
-                    }
-                }
-            }
-        }
-    }
-    
-    
-}
 

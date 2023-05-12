@@ -39,7 +39,7 @@ class ProfileDataFormViewController: UIViewController {
     private let hintLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Fill in you data"
+        label.text = "Enter your details"
         label.font = .systemFont(ofSize: 32, weight: .bold)
         label.textColor = .label
         return label
@@ -62,7 +62,7 @@ class ProfileDataFormViewController: UIViewController {
     private let submitButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Create account", for: .normal)
+        button.setTitle("Make changes", for: .normal)
         button.tintColor = .white
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
         button.backgroundColor = UIColor.systemBlue
@@ -81,28 +81,23 @@ class ProfileDataFormViewController: UIViewController {
         scrollView.addSubview(avatarPlaceholderImageView)
         scrollView.addSubview(userNameTextField)
         scrollView.addSubview(submitButton)
-        isModalInPresentation = true
+//        isModalInPresentation = true
         
         userNameTextField.delegate = self
                 
         view.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
         avatarPlaceholderImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToUpload)))
         
-        bindViews()
-        
         submitButton.addTarget(self, action: #selector(didTapSubmit), for: .touchUpInside)
         
         configureConstraints()
         
+        bindViews()
     }
     
     @objc private func didTapSubmit() {
         presenter.uploadAvatar()
-    }
-    
-    @objc private func didUpdateDisplayName() {
-        presenter.userName = userNameTextField.text
-        presenter.validateUserProfileForm()
+        self.dismiss(animated: true)
     }
     
     @objc private func didUpdateUsername() {
@@ -111,7 +106,6 @@ class ProfileDataFormViewController: UIViewController {
     }
     
     private func bindViews() {
-        userNameTextField.addTarget(self, action: #selector(didUpdateDisplayName), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(didUpdateUsername), for: .editingChanged)
         presenter.$isFormValid.sink { [weak self] buttonState in
             self?.submitButton.isEnabled = buttonState
@@ -198,7 +192,7 @@ extension ProfileDataFormViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         if textView.text.isEmpty {
-            textView.text = "Tell the world about yourself"
+            textView.text = "Test text"
             textView.textColor = .gray
         }
     }
